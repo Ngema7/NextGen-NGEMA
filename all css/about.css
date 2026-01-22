@@ -1,58 +1,119 @@
 #about {
-  background: radial-gradient(circle at top, #0b1435, #050b1e);
-  color: #ffffff;
-  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #0d1b3d, #040916);
+  color: #fff;
+  padding: 100px 0;
 }
 
+
+.galaxy-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 80% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 50% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 10% 90%, #fff, transparent);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+
+.floating-shape {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, #00b4d8, transparent 70%);
+  filter: blur(50px);
+  opacity: 0.6;
+  animation: float 12s ease-in-out infinite;
+}
+
+.shape1 {
+  top: 10%;
+  left: 5%;
+}
+
+.shape2 {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px);
+  }
+}
+
+/* Heading */
 #about h2 {
-  color: #ffffff;
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.5rem;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  background: linear-gradient(90deg, #00e5ff, #7b9cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* Content */
 .about-content {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 20px;
-  gap: 40px;
+  justify-content: center;
+  gap: 60px;
+  padding: 0 8%;
+  z-index: 2;
   flex-wrap: wrap;
 }
 
-.about-content img {
-  width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(0, 174, 255, 0.4);
+/* Image glow frame */
+.about-img {
+  position: relative;
 }
 
-.about-content .about-text {
-  width: 50%;
-  line-height: 1.8;
+.about-img img {
+  width: 320px;
+  border-radius: 18px;
+  box-shadow:
+    0 0 30px rgba(0, 180, 216, 0.6),
+    0 0 60px rgba(0, 180, 216, 0.4);
+}
+
+/* Glassmorphism text card */
+.about-text {
+  max-width: 520px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  line-height: 1.9;
   font-size: 1.1rem;
-  color: #dcdcdc;
+  color: #e6f1ff;
 }
 
-
-
+/* Responsive */
 @media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-content img {
-    width: 220px;
-  }
-
-  .about-content .about-text {
-    width: 100%;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
   #about h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .about-content {
+    gap: 40px;
+  }
+
+  .about-img img {
+    width: 240px;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    text-align: center;
   }
 }

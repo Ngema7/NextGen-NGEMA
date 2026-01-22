@@ -1,58 +1,109 @@
+/* ===================== PROJECTS SECTION ===================== */
+
 #projects {
-  padding: 90px 6%;
+  position: relative;
+  padding: 100px 6%;
   text-align: center;
-  background: radial-gradient(circle at top, #0b1435, #050b1e);
+  background: radial-gradient(circle at top, #0d1b3d, #040916);
   color: #fff;
+  overflow: hidden;
 }
+
+/* Decorative galaxy shapes */
+#projects::before,
+#projects::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, #00f0ff, transparent 70%);
+  filter: blur(65px);
+  opacity: 0.35;
+  animation: galaxyFloat 16s ease-in-out infinite;
+  z-index: 0;
+}
+
+#projects::before {
+  top: 8%;
+  left: 5%;
+}
+
+#projects::after {
+  bottom: 12%;
+  right: 6%;
+  animation-delay: 5s;
+}
+
+/* ===================== TITLE ===================== */
 
 #projects .section-title {
   font-size: 2.6rem;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
+  position: relative;
+  z-index: 2;
 }
+
+/* ===================== GRID ===================== */
 
 .projects-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
   align-items: start;
+  position: relative;
+  z-index: 2;
 }
 
+/* ===================== PROJECT CARD ===================== */
+
 .project-card {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.07);
   padding: 28px;
-  border-radius: 18px;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: 0.4s ease;
-  box-sizing: border-box;
-  max-width: 350px;
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: 0.45s ease;
+  max-width: 360px;
   margin: 0 auto;
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  animation: float 4s ease-in-out infinite;
+  animation: float 4.5s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.08);
 }
 
-.project-card img {
+/* Video styling */
+.project-card video {
   width: 100%;
-  border-radius: 12px;
-  filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.35));
-  transition: 0.3s;
+  border-radius: 14px;
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.35));
+  transition: 0.4s ease;
 }
 
+/* Hover video glow */
+.project-card:hover video {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 45px rgba(0, 240, 255, 0.6));
+}
+
+/* Title */
 .project-card h3 {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   margin: 0;
-  color: #00f0ff;
+  background: linear-gradient(90deg, #00f0ff, #6a5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* Text */
 .project-card p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
 }
 
+/* Link */
 .project-link {
   text-decoration: none;
   color: #6a5cff;
@@ -63,30 +114,43 @@
 
 .project-link:hover {
   color: #00f0ff;
-  transform: scale(1.05);
+  transform: translateX(4px);
 }
 
+/* Card hover */
 .project-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 20px 40px rgba(0, 240, 255, 0.15);
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 25px 50px rgba(0, 240, 255, 0.18);
 }
+
+/* ===================== ANIMATIONS ===================== */
 
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-12px); }
   100% { transform: translateY(0); }
 }
 
-/* ===== Responsive ===== */
+@keyframes galaxyFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-45px) translateX(30px);
+  }
+}
+
+/* ===================== RESPONSIVE ===================== */
+
 @media (max-width: 900px) {
   .projects-container {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 50px;
   }
 }
 
 @media (max-width: 500px) {
   .project-card {
-    padding: 20px;
+    padding: 22px;
   }
 }

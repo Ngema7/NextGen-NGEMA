@@ -78,7 +78,7 @@ header {
   margin-left: 2rem;
 }
 .social-icons a {
-  color: red;
+  color: #fff;
   font-size: 1.5rem;
   margin-left: 1rem;
   transition: color 0.5s ease;
@@ -116,7 +116,7 @@ header {
   display: none;
 }
 
-/* hover animation */
+
 .menu:hover .fa-bars {
   transform: rotate(90deg) scale(1.1);
 }
@@ -126,7 +126,7 @@ header {
   color: #00b4d8;
 }
 
-/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
   .menu {
     display: block;
@@ -144,7 +144,7 @@ header {
     flex-direction: column;
     align-items: center;
 
-    /* ANIMATION */
+    
     transform: translateY(-20px);
     opacity: 0;
     max-height: 0;
